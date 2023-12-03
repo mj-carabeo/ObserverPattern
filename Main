@@ -1,16 +1,17 @@
 public class Main {
     public static void main(String[] args) {
         NewsAgency newsAgency = new NewsAgency();
-        User user1 = new User(1, newsAgency);
-        User user2 = new User(2, newsAgency);
 
-        user1.subscribe();
-        user2.subscribe();
+        Subscriber subscriber1 = new Subscriber("Subscriber 1");
+        Subscriber subscriber2 = new Subscriber("Subscriber 2");
 
-        List<String> news = new ArrayList<>();
-        news.add("News 1");
-        news.add("News 2");
+        newsAgency.attach(subscriber1);
+        newsAgency.attach(subscriber2);
 
-        newsAgency.notifySubscribers(news);
+        newsAgency.setNews("Breaking News: War has been declared!");
+
+        newsAgency.detach(subscriber1);
+
+        newsAgency.setNews("New breaking News: A virus has been identified!");
     }
 }
