@@ -1,0 +1,16 @@
+public class Main {
+    public static void main(String[] args) {
+        NewsAgency newsAgency = new NewsAgency();
+        User user1 = new User(1, newsAgency);
+        User user2 = new User(2, newsAgency);
+
+        user1.subscribe();
+        user2.subscribe();
+
+        List<String> news = new ArrayList<>();
+        news.add("News 1");
+        news.add("News 2");
+
+        newsAgency.notifySubscribers(news);
+    }
+}
