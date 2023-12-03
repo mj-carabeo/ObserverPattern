@@ -1,0 +1,27 @@
+public class User implements Subscriber {
+    private int id;
+    private NewsAgency newsAgency;
+
+    public User(int id, NewsAgency newsAgency) {
+        this.id = id;
+        this.newsAgency = newsAgency;
+    }
+
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public void notify(List<String> news) {
+        System.out.println("User " + id + " received news: " + news);
+    }
+
+    public void subscribe() {
+        newsAgency.subscribe(this);
+    }
+
+    public void unsubscribe() {
+        newsAgency.unsubscribe(this);
+    }
+}
